@@ -1,0 +1,18 @@
+﻿  block.cpp
+C:\Users\ADMIN\source\repos\Tetrix_OOP\Tetrix_OOP\block.cpp(53,41): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  blocks.cpp
+  colors.cpp
+  game.cpp
+  grid.cpp
+  main.cpp
+C:\Users\ADMIN\source\repos\Tetrix_OOP\Tetrix_OOP\main.cpp(56,81): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ADMIN\source\repos\Tetrix_OOP\Tetrix_OOP\main.cpp(63,83): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ADMIN\source\repos\Tetrix_OOP\Tetrix_OOP\main.cpp(78,81): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\ADMIN\source\repos\Tetrix_OOP\Tetrix_OOP\main.cpp(85,83): warning C4305: 'argument': truncation from 'double' to 'float'
+  Menu.cpp
+  position.cpp
+  tempCodeRunnerFile.cpp
+  Generating Code...
+  Tetrix_OOP.vcxproj -> C:\Users\ADMIN\source\repos\Tetrix_OOP\x64\Debug\Tetrix_OOP.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.
