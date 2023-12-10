@@ -19,7 +19,7 @@ bool EventTriggered(double interval)
 
 int main()
 {
-    InitWindow(800, 600, "Tetris");
+    InitWindow(800, 600, "Tetris OOP");
     SetTargetFPS(60);
     srand((unsigned)time(0));
     Font font = LoadFontEx("Font/monogram.ttf", 64, 0, 0);
