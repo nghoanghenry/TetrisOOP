@@ -19,7 +19,7 @@ bool EventTriggered(double interval)
 
 int main()
 {
-    InitWindow(800, 600, "Tetris OOP");
+    InitWindow(1000, 800, "Tetris OOP");
     SetTargetFPS(60);
     srand((unsigned)time(0));
     Font font = LoadFontEx("Font/monogram.ttf", 64, 0, 0);
@@ -42,6 +42,10 @@ int main()
                 while (game.gameOver == false) {
                     // Lựa chọn "Play"
                     // Thực hiện hành động khi chơi
+                    if (WindowShouldClose() == true) {
+                        CloseWindow();
+                        return 0;
+                    }
                     UpdateMusicStream(game.music);
                     game.HandleInput();
                     if (EventTriggered(0.2))
@@ -101,6 +105,7 @@ int main()
             case 3:
                 // Lựa chọn "Exit"
                 CloseWindow();
+                return 0;
                 break;
             }
         }

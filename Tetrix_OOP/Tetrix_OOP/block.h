@@ -15,6 +15,10 @@ public:
     void UndoRotation();
     int id;
     std::map<int, std::vector<Position>> cells;
+    int getterrowOffset();
+    int gettercolumnOffset();
+    void setterrowOffset(int);
+    void settercolumnOffset(int);
 
 private:
     int cellSize;

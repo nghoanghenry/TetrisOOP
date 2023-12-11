@@ -53,3 +53,16 @@ void Block::UndoRotation()
         rotationState = cells.size() - 1;
     }
 }
+int Block::getterrowOffset() {
+    return rowOffset;
+}
+
+int Block::gettercolumnOffset() {
+    return columnOffset;
+}
+void Block::setterrowOffset(int a) {
+    rowOffset = a;
+}
+void Block::settercolumnOffset(int a) {
+    columnOffset = a;
+}

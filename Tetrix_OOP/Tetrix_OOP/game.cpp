@@ -1,7 +1,7 @@
 ﻿#include "game.h"
 #include <cstdlib> 
 #include <ctime> 
-
+#include <iostream>
 Game::Game()
 {
     grid = Grid();
@@ -83,8 +83,22 @@ void Game::HandleInput()
     case KEY_UP:
         RotateBlock();
         break;
+    case KEY_SPACE: {
+        while (true) {
+            currentBlock.Move(1, 0);
+            UpdateScore(0, 1);
+            if (IsBlockOutside() || BlockFits() == false)
+            {
+                currentBlock.Move(-1, 0);
+                LockBlock();
+                break;
+            }
+        }
+        break;
+    }
     }
 }
+
 
 void Game::MoveBlockLeft()
 {
@@ -212,6 +226,5 @@ void Game::UpdateScore(int linesCleared, int moveDownPoints)
     default:
         break;
     }
-
     score += moveDownPoints;
 }
