@@ -3,7 +3,7 @@
 #include "colors.h"
 #include "Menu.h"
 #include <iostream>
-
+#include <string>
 double lastUpdateTime = 0;
 
 bool EventTriggered(double interval)
@@ -36,6 +36,8 @@ int main()
             switch (menu.GetSelectedOption())
             {
             case 0: {
+                int hardstage = 1;
+                int cnt = 0;
                 game.player.getPlayerName();
                 if (game.gameOver == true) {
 
@@ -50,21 +52,29 @@ int main()
                     }
                     UpdateMusicStream(game.music);
                     game.HandleInput();
-                    if (EventTriggered(0.2))
+                    string hardstageText = to_string(hardstage);
+                    if (EventTriggered(max(1-hardstage*0.1,0.2)))
                     {
                         game.MoveBlockDown();
                     }
-
+                    cnt++;
+                    if (cnt == 1000) {
+                        hardstage++;
+                        hardstage = min(hardstage, 10);
+                        cnt = 0;
+                    }
                     BeginDrawing();
                     ClearBackground(darkBlue);
                     DrawTextEx(font, "Score", { 365, 15 }, 38, 2, WHITE);
                     DrawTextEx(font, "Next", { 370, 175 }, 38, 2, WHITE);
+                    DrawTextEx(font, "Stage", { 550, 15 }, 38, 2, WHITE);
                     DrawRectangleRounded({ 320, 55, 170, 60 }, 0.3, 6, lightBlue);
 
                     char scoreText[10];
                     sprintf_s(scoreText, "%d", game.player.getScore());
                     Vector2 textSize = MeasureTextEx(font, scoreText, 38, 2);
-
+                    Vector2 textSizeHardStage = MeasureTextEx(font, hardstageText.c_str(), 50, 6);
+                    DrawTextEx(font, hardstageText.c_str(), {440 + (300 - textSizeHardStage.x) / 2, 65}, 45, 6, WHITE);
                     DrawTextEx(font, scoreText, { 320 + (170 - textSize.x) / 2, 65 }, 38, 2, WHITE);
                     DrawRectangleRounded({ 320, 215, 170, 180 }, 0.3, 6, lightBlue);
                     game.Draw();
