@@ -4,6 +4,7 @@
 #include "Menu.h"
 #include <iostream>
 #include <string>
+#include "image.h"
 double lastUpdateTime = 0;
 
 bool EventTriggered(double interval)
@@ -19,15 +20,19 @@ bool EventTriggered(double interval)
 
 int main()
 {
-    InitWindow(1000, 800, "Tetris OOP");
+    InitWindow(1000, 667, "Tetris OOP");
     SetTargetFPS(60);
     srand((unsigned)time(0));
     Font font = LoadFontEx("Font/monogram.ttf", 64, 0, 0);
+    ImageHandler background("background.png");
+    ImageHandler backgroundinner("backgroundinner.png");
+
 
     Game game = Game();
     Menu menu;
     while (!WindowShouldClose())
     {
+        background.Draw();
         menu.Update();
        
         if (IsKeyPressed(KEY_ENTER))
@@ -64,19 +69,19 @@ int main()
                         cnt = 0;
                     }
                     BeginDrawing();
-                    ClearBackground(darkBlue);
-                    DrawTextEx(font, "Score", { 365, 15 }, 38, 2, WHITE);
-                    DrawTextEx(font, "Next", { 370, 175 }, 38, 2, WHITE);
-                    DrawTextEx(font, "Stage", { 550, 15 }, 38, 2, WHITE);
-                    DrawRectangleRounded({ 320, 55, 170, 60 }, 0.3, 6, lightBlue);
+                    backgroundinner.Draw();
+                    DrawTextEx(font, "Score", { 465, 65 }, 38, 2, WHITE);
+                    DrawTextEx(font, "Next", { 465, 200 }, 38, 2, WHITE);
+                    DrawTextEx(font, "Stage", { 465, 450 }, 38, 2, WHITE);
+                    DrawRectangleRounded({ 450, 115, 170, 60 }, 0.3, 6, lightBlue);
 
                     char scoreText[10];
                     sprintf_s(scoreText, "%d", game.player.getScore());
                     Vector2 textSize = MeasureTextEx(font, scoreText, 38, 2);
                     Vector2 textSizeHardStage = MeasureTextEx(font, hardstageText.c_str(), 50, 6);
-                    DrawTextEx(font, hardstageText.c_str(), {440 + (300 - textSizeHardStage.x) / 2, 65}, 45, 6, WHITE);
-                    DrawTextEx(font, scoreText, { 320 + (170 - textSize.x) / 2, 65 }, 38, 2, WHITE);
-                    DrawRectangleRounded({ 320, 215, 170, 180 }, 0.3, 6, lightBlue);
+                    DrawTextEx(font, hardstageText.c_str(), {350 + (300 - textSizeHardStage.x) / 2, 500}, 45, 6, WHITE);
+                    DrawTextEx(font, scoreText, { 450 + (170 - textSize.x) / 2, 125 }, 38, 2, WHITE);
+                    DrawRectangleRounded({ 450 , 240, 170, 180 }, 0.3, 6, lightBlue);
                     game.Draw();
                     EndDrawing();
                     if (game.gameOver)
@@ -88,20 +93,18 @@ int main()
                 {
                     UpdateMusicStream(game.music);
                     BeginDrawing();
-                    ClearBackground(darkBlue);
-                    DrawTextEx(font, "Score", { 365, 15 }, 38, 2, WHITE);
-                    DrawTextEx(font, "Next", { 370, 175 }, 38, 2, WHITE);
-                    DrawRectangleRounded({ 320, 55, 170, 60 }, 0.3, 6, lightBlue);
-
+                    backgroundinner.Draw();
+                    DrawTextEx(font, "Score: ", { 370, 330 }, 38, 2, WHITE);
+                    
                     char scoreText[10];
                     sprintf_s(scoreText, "%d", game.player.getScore());
                     Vector2 textSize = MeasureTextEx(font, scoreText, 38, 2);
 
-                    DrawTextEx(font, scoreText, { 320 + (170 - textSize.x) / 2, 65 }, 38, 2, WHITE);
-                    DrawRectangleRounded({ 320, 215, 170, 180 }, 0.3, 6, lightBlue);
-                    game.Draw();
+                    DrawTextEx(font, scoreText, { 550, 330 }, 38, 2, WHITE);
+                    DrawTextEx(font, "GAME OVER", { 320, 220 }, 70, 2, WHITE);
+                    DrawTextEx(font, "_Press Enter To Continue_", { 250, 400 }, 38, 2, WHITE);
                     EndDrawing();
-                    DrawTextEx(font, "GAME OVER", { 320, 450 }, 38, 2, WHITE);
+
                     if (IsKeyPressed(KEY_ENTER)) break;
                 }
                 break;
@@ -121,30 +124,25 @@ int main()
                 while (true)
                 {
                     BeginDrawing();
-                    ClearBackground(DARKBLUE);
-                    // Title
-                    DrawTextEx(font, "Tetris Instruction For Beginners", { 200, 10 }, 38, 2, ORANGE);
+                    background.Draw();
+                    DrawTextEx(font, "Tetris for Beginners", { 300, 130 }, 38, 2, ORANGE);
 
-                    // Overview
-                    DrawTextEx(font, "Embark on the Tetris Adventure!", { 250, 60 }, 30, 2, BLACK);
-                    DrawTextEx(font, "----------------------------------------", { 210, 90 }, 30, 2, BLACK);
+                    // Updated Description
+                    DrawTextEx(font, "Objective:", { 100, 170 }, 28, 1, YELLOW);
+                    DrawTextEx(font, "Arrange falling blocks to complete horizontal lines efficiently.", { 100, 200 }, 22, 1, WHITE);
 
-                    // Gameplay Basics
-                    DrawTextEx(font, "1. Tetriminos: The Building Blocks", { 70, 130 }, 25, 2, BLACK);
-                    DrawTextEx(font, "   Tetris is all about Tetriminos - unique geometric shapes that fall from", { 70, 160 }, 25, 2, BLACK);
-                    DrawTextEx(font, "   the top of the screen. Master their twists and turns!", { 70, 190 }, 25, 2, BLACK);
+                    DrawTextEx(font, "Controls:", { 100, 260 }, 28, 1, YELLOW);
+                    DrawTextEx(font, "Left Arrow: Move left, Right Arrow: Move right, Down Arrow: Accelerate descent,", { 100, 290 }, 22, 1, WHITE);
+                    DrawTextEx(font, "Up Arrow or Space Bar: Rotate block.", { 100, 315 }, 22, 1, WHITE);
 
-                    DrawTextEx(font, "2. The Matrix: Your Puzzle Playground", { 70, 230 }, 25, 2, BLACK);
-                    DrawTextEx(font, "   Tetriminos will land in the Matrix - a grid where you orchestrate", { 70, 260 }, 25, 2, BLACK);
-                    DrawTextEx(font, "   your moves. Fill complete rows to make them vanish!", { 70, 290 }, 25, 2, BLACK);
+                    DrawTextEx(font, "Tips:", { 100, 360 }, 28, 1, YELLOW);
+                    DrawTextEx(font, "1. Plan ahead for efficient line clears.", { 100, 390 }, 22, 1, WHITE);
+                    DrawTextEx(font, "2. Use down arrow to drop blocks quickly and fill gaps.", { 100, 415 }, 22, 1, WHITE);
+                    DrawTextEx(font, "3. Be mindful of upcoming blocks and strategize placements.", { 100, 440 }, 22, 1, WHITE);
+                    DrawTextEx(font, "4. Aim for Tetris clears to maximize your score.", { 100, 465 }, 22, 1, WHITE);
 
-                    // Strategy Tips
-                    DrawTextEx(font, "3. Think Fast, Act Faster", { 70, 330 }, 25, 2, BLACK);
-                    DrawTextEx(font, "   Tetris is a game of speed and precision. Anticipate where each", { 70, 360 }, 25, 2, BLACK);
-                    DrawTextEx(font, "   Tetrimino will fit for maximum points!", { 70, 390 }, 25, 2, BLACK);
+                    DrawTextEx(font, "22127185 - 22127128 - 22127157", { 350, 505 }, 22, 1, WHITE);
 
-                    // Closing
-                    DrawTextEx(font, "Ready to Stack the Blocks?", { 250, 430 }, 30, 2, BLACK);
 
                     EndDrawing();
                     if (IsKeyPressed(KEY_ENTER))

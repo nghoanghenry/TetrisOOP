@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "image.h"
 
 Player::Player() {
     score = 0;
@@ -20,7 +21,8 @@ void Player::getPlayerName() {
     char name[MAX_INPUT_CHARS + 1] = "\0";
     bool mouseOnText = false;
     int framesCounter = 0;
-    Rectangle textBox = { 800 / 2.0f - 100, 180, 225, 50 };
+    Rectangle textBox = { 800 / 2.0f, 280, 225, 50 };
+    ImageHandler backgroundinner("backgroundinner.png");
     while (!WindowShouldClose()) {
         if (CheckCollisionPointRec(GetMousePosition(), textBox)) mouseOnText = true;
         else mouseOnText = false;
@@ -63,26 +65,27 @@ void Player::getPlayerName() {
         //----------------------------------------------------------------------------------
         BeginDrawing();
 
-        ClearBackground(RAYWHITE);
+        backgroundinner.Draw();
 
-        DrawText("PLACE MOUSE OVER INPUT BOX!", 240, 140, 20, GRAY);
+
+        DrawText("PLACE MOUSE OVER INPUT BOX!", 200, 230, 40, GRAY);
 
         DrawRectangleRec(textBox, LIGHTGRAY);
         if (mouseOnText) DrawRectangleLines((int)textBox.x, (int)textBox.y, (int)textBox.width, (int)textBox.height, RED);
         else DrawRectangleLines((int)textBox.x, (int)textBox.y, (int)textBox.width, (int)textBox.height, DARKGRAY);
 
         DrawText(name, (int)textBox.x + 5, (int)textBox.y + 8, 40, MAROON);
-
-        DrawText(TextFormat("INPUT CHARS: %i/%i", letterCount, MAX_INPUT_CHARS), 315, 250, 20, DARKGRAY);
+        
+        DrawText(TextFormat("INPUT CHARS: %i/%i", letterCount, MAX_INPUT_CHARS), 800 / 2.0f + 10, 350, 20, DARKGRAY);
 
         if (mouseOnText)
-        {
+        {   
             if (letterCount < MAX_INPUT_CHARS)
             {
                 // Draw blinking underscore char
                 if (((framesCounter / 20) % 2) == 0) DrawText("_", (int)textBox.x + 8 + MeasureText(name, 40), (int)textBox.y + 12, 40, MAROON);
             }
-            else DrawText("Press BACKSPACE to delete chars...", 230, 300, 20, GRAY);
+            else DrawText("Press BACKSPACE to delete chars...", 330, 400, 20, GRAY);
         }
         this->name = name;
         EndDrawing();
