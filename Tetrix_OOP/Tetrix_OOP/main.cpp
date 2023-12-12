@@ -36,6 +36,7 @@ int main()
             switch (menu.GetSelectedOption())
             {
             case 0: {
+                game.player.getPlayerName();
                 if (game.gameOver == true) {
                     game.Reset();
                 }
@@ -60,7 +61,7 @@ int main()
                     DrawRectangleRounded({ 320, 55, 170, 60 }, 0.3, 6, lightBlue);
 
                     char scoreText[10];
-                    sprintf_s(scoreText, "%d", game.score);
+                    sprintf_s(scoreText, "%d", game.player.getScore());
                     Vector2 textSize = MeasureTextEx(font, scoreText, 38, 2);
 
                     DrawTextEx(font, scoreText, { 320 + (170 - textSize.x) / 2, 65 }, 38, 2, WHITE);
@@ -82,7 +83,7 @@ int main()
                     DrawRectangleRounded({ 320, 55, 170, 60 }, 0.3, 6, lightBlue);
 
                     char scoreText[10];
-                    sprintf_s(scoreText, "%d", game.score);
+                    sprintf_s(scoreText, "%d", game.player.getScore());
                     Vector2 textSize = MeasureTextEx(font, scoreText, 38, 2);
 
                     DrawTextEx(font, scoreText, { 320 + (170 - textSize.x) / 2, 65 }, 38, 2, WHITE);

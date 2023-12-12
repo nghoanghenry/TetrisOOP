@@ -1,10 +1,8 @@
 ﻿  game.cpp
   main.cpp
-C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(60,81): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(67,83): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(82,81): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(89,83): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(61,64): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(68,66): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(83,64): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(90,66): warning C4305: 'argument': truncation from 'double' to 'float'
   Generating Code...
-  Tetrix_OOP.vcxproj -> C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\TetrisOOP\Tetrix_OOP\x64\Debug\Tetrix_OOP.exe
-  'pwsh.exe' is not recognized as an internal or external command,
-  operable program or batch file.
+  Tetrix_OOP.vcxproj -> C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\x64\Debug\Tetrix_OOP.exe

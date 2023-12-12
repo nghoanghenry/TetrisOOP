@@ -24,6 +24,7 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="grid.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="position.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
@@ -35,6 +36,7 @@
     <ClCompile Include="grid.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="position.cpp" />
     <ClCompile Include="tempCodeRunnerFile.cpp" />
   </ItemGroup>
