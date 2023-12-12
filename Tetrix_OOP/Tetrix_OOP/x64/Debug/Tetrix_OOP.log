@@ -1,8 +1,6 @@
-﻿  game.cpp
-  main.cpp
-C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(61,64): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(68,66): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(83,64): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(90,66): warning C4305: 'argument': truncation from 'double' to 'float'
-  Generating Code...
+﻿  main.cpp
+C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(62,64): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(69,66): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(84,64): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\main.cpp(91,66): warning C4305: 'argument': truncation from 'double' to 'float'
   Tetrix_OOP.vcxproj -> C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\x64\Debug\Tetrix_OOP.exe

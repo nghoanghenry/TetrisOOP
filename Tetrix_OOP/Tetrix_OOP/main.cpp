@@ -38,6 +38,7 @@ int main()
             case 0: {
                 game.player.getPlayerName();
                 if (game.gameOver == true) {
+
                     game.Reset();
                 }
                 while (game.gameOver == false) {
@@ -95,19 +96,59 @@ int main()
                 }
                 break;
             }
-            case 1:
+            case 1: {
+                BeginDrawing();
+                ClearBackground(darkBlue);
+                if (IsKeyPressed(KEY_ENTER))
+                    break;
+
+            }
+                  break;
                 // Lựa chọn "High Scores"
                 // Thực hiện hành động khi xem xếp hạng
-                break;
-            case 2:
+
+            case 2: {
+                while (true)
+                {
+                    BeginDrawing();
+                    ClearBackground(DARKBLUE);
+                    // Title
+                    DrawTextEx(font, "Tetris Instruction For Beginners", { 200, 10 }, 38, 2, ORANGE);
+
+                    // Overview
+                    DrawTextEx(font, "Embark on the Tetris Adventure!", { 250, 60 }, 30, 2, BLACK);
+                    DrawTextEx(font, "----------------------------------------", { 210, 90 }, 30, 2, BLACK);
+
+                    // Gameplay Basics
+                    DrawTextEx(font, "1. Tetriminos: The Building Blocks", { 70, 130 }, 25, 2, BLACK);
+                    DrawTextEx(font, "   Tetris is all about Tetriminos - unique geometric shapes that fall from", { 70, 160 }, 25, 2, BLACK);
+                    DrawTextEx(font, "   the top of the screen. Master their twists and turns!", { 70, 190 }, 25, 2, BLACK);
+
+                    DrawTextEx(font, "2. The Matrix: Your Puzzle Playground", { 70, 230 }, 25, 2, BLACK);
+                    DrawTextEx(font, "   Tetriminos will land in the Matrix - a grid where you orchestrate", { 70, 260 }, 25, 2, BLACK);
+                    DrawTextEx(font, "   your moves. Fill complete rows to make them vanish!", { 70, 290 }, 25, 2, BLACK);
+
+                    // Strategy Tips
+                    DrawTextEx(font, "3. Think Fast, Act Faster", { 70, 330 }, 25, 2, BLACK);
+                    DrawTextEx(font, "   Tetris is a game of speed and precision. Anticipate where each", { 70, 360 }, 25, 2, BLACK);
+                    DrawTextEx(font, "   Tetrimino will fit for maximum points!", { 70, 390 }, 25, 2, BLACK);
+
+                    // Closing
+                    DrawTextEx(font, "Ready to Stack the Blocks?", { 250, 430 }, 30, 2, BLACK);
+
+                    EndDrawing();
+                    if (IsKeyPressed(KEY_ENTER))
+                        break;
+                }
+                
+            }
+                  break;
                 // Lựa chọn "Instructions"
                 // Thực hiện hành động khi xem hướng dẫn
-                break;
             case 3:
                 // Lựa chọn "Exit"
                 CloseWindow();
                 return 0;
-                break;
             }
         }
 
