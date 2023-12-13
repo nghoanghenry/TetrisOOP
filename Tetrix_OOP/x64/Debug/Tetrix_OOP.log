@@ -1,1 +1,20 @@
-﻿  Tetrix_OOP.vcxproj -> C:\Users\DELL\Desktop\TetrisOOP\Tetrix_OOP\x64\Debug\Tetrix_OOP.exe
+﻿  block.cpp
+C:\Users\DELL\Desktop\test\TetrisOOP\Tetrix_OOP\block.cpp(53,41): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  blocks.cpp
+  colors.cpp
+  game.cpp
+  grid.cpp
+  image.cpp
+  main.cpp
+C:\Users\DELL\Desktop\test\TetrisOOP\Tetrix_OOP\main.cpp(76,82): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\DELL\Desktop\test\TetrisOOP\Tetrix_OOP\main.cpp(84,84): warning C4305: 'argument': truncation from 'double' to 'float'
+  Menu.cpp
+  Player.cpp
+C:\Users\DELL\Desktop\test\TetrisOOP\Tetrix_OOP\Player.cpp(79,93): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  position.cpp
+  tempCodeRunnerFile.cpp
+  Generating Code...
+  LINK : C:\Users\DELL\Desktop\test\TetrisOOP\x64\Debug\Tetrix_OOP.exe not found or not built by the last incremental link; performing full link
+  Tetrix_OOP.vcxproj -> C:\Users\DELL\Desktop\test\TetrisOOP\x64\Debug\Tetrix_OOP.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.
