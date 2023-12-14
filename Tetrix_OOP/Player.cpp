@@ -7,6 +7,8 @@ Player::Player() {
     letterCount = 0;
 }
 
+Player::Player(const std::string& playerName, int playerScore) : name(playerName), score(playerScore) {}
+
 int Player::getScore() {
     return score;
 }
@@ -87,11 +89,13 @@ void Player::getPlayerName() {
             }
             else DrawText("Press BACKSPACE to delete chars...", 330, 400, 20, GRAY);
         }
-        this->name = name;
+        this->name = std::string(name);
         EndDrawing();
         if (IsKeyPressed(KEY_ENTER)) break;
         //----------------------------------------------------------------------------------
     }
+    memset(name, '\0', sizeof(name));
+    letterCount = 0;
 
     // De-Initialization
     //--------------------------------------------------------------------------------------

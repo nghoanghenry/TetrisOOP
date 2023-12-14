@@ -3,3 +3,4 @@ C:\Users\ADMIN\OneDrive\Tài liệu\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\x64
 C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\Tetrix_OOP\x64\Debug\Tetrix_OOP.vcxproj.CopyComplete
 C:\Users\DELL\Desktop\test\TetrisOOP\Tetrix_OOP\x64\Debug\Tetrix_OOP.vcxproj.CopyComplete
 C:\Users\DELL\Desktop\test\TetrisOOP\Tetrix_OOP\x64\Debug\Tetrix_OOP.exe
+C:\Users\Admin\OneDrive\Documents\GitHub\TetrisOOP\Tetrix_OOP\x64\Debug\Tetrix_OOP.exe

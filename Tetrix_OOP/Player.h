@@ -12,6 +12,7 @@ private:
 	int letterCount;
 public:
 	Player();
+	Player(const std::string& playerName, int playerScore);
 	int getScore();
 	string getName();
 	void setScore(int s);

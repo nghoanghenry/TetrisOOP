@@ -4,6 +4,7 @@
 #include "Menu.h"
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include "image.h"
 double lastUpdateTime = 0;
 
@@ -17,6 +18,9 @@ bool EventTriggered(double interval)
     }
     return false;
 }
+bool comparePlayers( Player& player1,  Player& player2) {
+    return player1.getScore() > player2.getScore();  
+}
 
 int main()
 {
@@ -26,8 +30,10 @@ int main()
     Font font = LoadFontEx("Font/monogram.ttf", 64, 0, 0);
     ImageHandler background("background.png");
     ImageHandler backgroundinner("backgroundinner.png");
-
-
+    std::vector<Player> players;
+    for (size_t i = 0; i < 5; i++) {
+        players.push_back(Player("Unknow", 0));
+    }
     Game game = Game();
     Menu menu;
     while (!WindowShouldClose())
@@ -44,14 +50,19 @@ int main()
                 int hardstage = 1;
                 int cnt = 0;
                 game.player.getPlayerName();
+                
                 if (game.gameOver == true) {
-
                     game.Reset();
                 }
                 while (game.gameOver == false) {
                     // Lựa chọn "Play"
                     // Thực hiện hành động khi chơi
+                    vector<Player> highestScore;
+                    for (size_t i = 0; i < 5; i++) {
+                        highestScore.push_back(players[i]);
+                    }
                     if (WindowShouldClose() == true) {
+                 
                         CloseWindow();
                         return 0;
                     }
@@ -82,11 +93,22 @@ int main()
                     DrawTextEx(font, hardstageText.c_str(), {350 + (300 - textSizeHardStage.x) / 2, 500}, 45, 6, WHITE);
                     DrawTextEx(font, scoreText, { 450 + (170 - textSize.x) / 2, 125 }, 38, 2, WHITE);
                     DrawRectangleRounded({ 450 , 240, 170, 180 }, 0.3, 6, lightBlue);
+                    highestScore.push_back(game.player);
+                    for (size_t i = 0; i < 5; ++i)
+                    {   
+
+                        Player& player = highestScore[i];
+                        std::sort(highestScore.begin(), highestScore.end(), comparePlayers);
+                        std::string playerInfo = "Player: " + player.getName() + ", Score: " + std::to_string(player.getScore());
+                        DrawTextEx(font, playerInfo.c_str(), { 400, (float)100 + i * 30 }, 30, 2, WHITE);
+                    }
                     game.Draw();
                     EndDrawing();
                     if (game.gameOver)
                     {
                         DrawTextEx(font, "GAME OVER", { 320, 450 }, 38, 2, WHITE);
+                        players.push_back(game.player);
+                        std::sort(players.begin(), players.end(), comparePlayers);
                     }
                 }
                 while(true)
@@ -103,6 +125,8 @@ int main()
                     DrawTextEx(font, scoreText, { 550, 330 }, 38, 2, WHITE);
                     DrawTextEx(font, "GAME OVER", { 320, 220 }, 70, 2, WHITE);
                     DrawTextEx(font, "_Press Enter To Continue_", { 250, 400 }, 38, 2, WHITE);
+                    
+
                     EndDrawing();
 
                     if (IsKeyPressed(KEY_ENTER)) break;
@@ -110,11 +134,20 @@ int main()
                 break;
             }
             case 1: {
-                BeginDrawing();
-                ClearBackground(darkBlue);
-                if (IsKeyPressed(KEY_ENTER))
-                    break;
-
+                while (true)
+                {
+                    BeginDrawing();
+                    background.Draw();
+                    std::sort(players.begin(), players.end(), comparePlayers);
+                    for (size_t i = 0; i < 5; ++i) {
+                        Player& player = players[i];
+                        std::string playerInfo = "Player: " + player.getName() + ", Score: " + std::to_string(player.getScore());
+                        DrawTextEx(font, playerInfo.c_str(), { 100, (float)100 + i * 30 } , 20, 2,  WHITE);
+                    }
+                    EndDrawing();
+                    if (IsKeyPressed(KEY_ENTER))
+                        break;
+                }
             }
                   break;
                 // Lựa chọn "High Scores"
@@ -151,10 +184,7 @@ int main()
                 
             }
                   break;
-                // Lựa chọn "Instructions"
-                // Thực hiện hành động khi xem hướng dẫn
             case 3:
-                // Lựa chọn "Exit"
                 CloseWindow();
                 return 0;
             }
