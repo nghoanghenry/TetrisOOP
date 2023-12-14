@@ -70,15 +70,15 @@ void Player::getPlayerName() {
         backgroundinner.Draw();
 
 
-        DrawText("PLACE MOUSE OVER INPUT BOX!", 200, 230, 40, GRAY);
+        DrawText("PLACE MOUSE OVER INPUT BOX!", 200, 230, 40, WHITE);
 
-        DrawRectangleRec(textBox, LIGHTGRAY);
+        DrawRectangleRec(textBox, WHITE);
         if (mouseOnText) DrawRectangleLines((int)textBox.x, (int)textBox.y, (int)textBox.width, (int)textBox.height, RED);
-        else DrawRectangleLines((int)textBox.x, (int)textBox.y, (int)textBox.width, (int)textBox.height, DARKGRAY);
+        else DrawRectangleLines((int)textBox.x, (int)textBox.y, (int)textBox.width, (int)textBox.height, WHITE);
 
         DrawText(name, (int)textBox.x + 5, (int)textBox.y + 8, 40, MAROON);
         
-        DrawText(TextFormat("INPUT CHARS: %i/%i", letterCount, MAX_INPUT_CHARS), 800 / 2.0f + 10, 350, 20, DARKGRAY);
+        DrawText(TextFormat("INPUT CHARS: %i/%i", letterCount, MAX_INPUT_CHARS), 800 / 2.0f + 10, 350, 20, WHITE);
 
         if (mouseOnText)
         {   
@@ -87,7 +87,7 @@ void Player::getPlayerName() {
                 // Draw blinking underscore char
                 if (((framesCounter / 20) % 2) == 0) DrawText("_", (int)textBox.x + 8 + MeasureText(name, 40), (int)textBox.y + 12, 40, MAROON);
             }
-            else DrawText("Press BACKSPACE to delete chars...", 330, 400, 20, GRAY);
+            else DrawText("Press BACKSPACE to delete chars...", 330, 400, 20, RED);
         }
         this->name = std::string(name);
         EndDrawing();

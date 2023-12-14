@@ -49,13 +49,13 @@ void Game::Draw()
     switch (nextBlock.id)
     {
     case 3:
-        nextBlock.Draw(385, 310);
+        nextBlock.Draw(335, 310);
         break;
     case 4:
-        nextBlock.Draw(385, 300);
+        nextBlock.Draw(335, 300);
         break;
     default:
-        nextBlock.Draw(395, 290);
+        nextBlock.Draw(365, 290);
         break;
     }
 }

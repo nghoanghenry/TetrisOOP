@@ -6,6 +6,7 @@
 #include <string>
 #include <algorithm>
 #include "image.h"
+#include <iomanip>
 double lastUpdateTime = 0;
 
 bool EventTriggered(double interval)
@@ -81,26 +82,32 @@ int main()
                     }
                     BeginDrawing();
                     backgroundinner.Draw();
-                    DrawTextEx(font, "Score", { 465, 65 }, 38, 2, WHITE);
-                    DrawTextEx(font, "Next", { 465, 200 }, 38, 2, WHITE);
-                    DrawTextEx(font, "Stage", { 465, 450 }, 38, 2, WHITE);
-                    DrawRectangleRounded({ 450, 115, 170, 60 }, 0.3, 6, lightBlue);
+                    DrawTextEx(font, "Score", { 415, 65 }, 38, 2, WHITE);
+                    DrawTextEx(font, "Next", { 415, 200 }, 38, 2, WHITE);
+                    DrawTextEx(font, "Stage", { 415, 450 }, 38, 2, WHITE);
+                    DrawRectangleRounded({ 400, 500, 170, 60 }, 0.3, 6, lightBlue);
+                    DrawRectangleRounded({ 400, 115, 170, 60 }, 0.3, 6, lightBlue);
 
                     char scoreText[10];
                     sprintf_s(scoreText, "%d", game.player.getScore());
                     Vector2 textSize = MeasureTextEx(font, scoreText, 38, 2);
                     Vector2 textSizeHardStage = MeasureTextEx(font, hardstageText.c_str(), 50, 6);
-                    DrawTextEx(font, hardstageText.c_str(), {350 + (300 - textSizeHardStage.x) / 2, 500}, 45, 6, WHITE);
-                    DrawTextEx(font, scoreText, { 450 + (170 - textSize.x) / 2, 125 }, 38, 2, WHITE);
-                    DrawRectangleRounded({ 450 , 240, 170, 180 }, 0.3, 6, lightBlue);
+                    DrawTextEx(font, hardstageText.c_str(), {330 + (300 - textSizeHardStage.x) / 2, 510}, 38, 6, WHITE);
+                    DrawTextEx(font, scoreText, { 400 + (170 - textSize.x) / 2, 125 }, 38, 2, WHITE);
+                    DrawRectangleRounded({ 400 , 240, 170, 180 }, 0.3, 6, lightBlue);
+
+                    DrawTextEx(font, "Top Star: ", { 610, 65 }, 38, 2, WHITE);
+                    DrawTextEx(font, "Explain: ", { 610, 365 }, 38, 2, WHITE);
+                    DrawTextEx(font, "P: Player ", { 630, 415 }, 38, 2, WHITE);
+                    DrawTextEx(font, "S: Score ", { 630, 465 }, 38, 2, WHITE);
+
                     highestScore.push_back(game.player);
                     for (size_t i = 0; i < 5; ++i)
                     {   
-
                         Player& player = highestScore[i];
                         std::sort(highestScore.begin(), highestScore.end(), comparePlayers);
-                        std::string playerInfo = "Player: " + player.getName() + ", Score: " + std::to_string(player.getScore());
-                        DrawTextEx(font, playerInfo.c_str(), { 400, (float)100 + i * 30 }, 30, 2, WHITE);
+                        std::string playerInfo = "P: " + player.getName() + ", S: " + std::to_string(player.getScore());
+                        DrawTextEx(font, playerInfo.c_str(), { 630, (float)115 + i * 50 }, 38, 2, WHITE);
                     }
                     game.Draw();
                     EndDrawing();
@@ -138,11 +145,12 @@ int main()
                 {
                     BeginDrawing();
                     background.Draw();
+                    DrawTextEx(font, "Top 5 Highest Score Players ", { 200, 180 }, 45, 2, YELLOW);
                     std::sort(players.begin(), players.end(), comparePlayers);
                     for (size_t i = 0; i < 5; ++i) {
                         Player& player = players[i];
                         std::string playerInfo = "Player: " + player.getName() + ", Score: " + std::to_string(player.getScore());
-                        DrawTextEx(font, playerInfo.c_str(), { 100, (float)100 + i * 30 } , 20, 2,  WHITE);
+                        DrawTextEx(font, playerInfo.c_str(), { 250, (float)270 + i * 50 } , 35, 2,  WHITE);
                     }
                     EndDrawing();
                     if (IsKeyPressed(KEY_ENTER))
